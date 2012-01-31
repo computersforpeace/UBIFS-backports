@@ -868,6 +868,7 @@ static int __devinit m25p_probe(struct spi_device *spi)
 
 	flash->mtd.dev.parent = &spi->dev;
 	flash->page_size = info->page_size;
+	flash->mtd.writebufsize = flash->page_size;
 	flash->addr_width = info->addr_width;
 
 	dev_info(&spi->dev, "%s (%lld Kbytes)\n", id->name,
